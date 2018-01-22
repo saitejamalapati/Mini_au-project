@@ -1,16 +1,16 @@
 package com.project.sources;
 
-public class Registered_Customers {
+public class RegisteredCustomers {
 	private int customerId;
 	private String dob;
 	private String username;
 	private String password;
 	
-	public Registered_Customers() {}
+	public RegisteredCustomers() {}
 
-	public Registered_Customers(int customer_id, String dOB, String username, String password) {
+	public RegisteredCustomers(int customerId, String dOB, String username, String password) {
 		super();
-		this.customerId = customer_id;
+		this.customerId = customerId;
 		this.dob = dOB;
 		this.username = username;
 		this.password = password;
@@ -20,8 +20,8 @@ public class Registered_Customers {
 		return customerId;
 	}
 
-	public void setCustomerId(int customer_id) {
-		this.customerId = customer_id;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getDob() {

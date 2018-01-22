@@ -1,3 +1,4 @@
+package com.project.tests;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,16 +37,17 @@ public class OrderDetailsTestOperations {
 	@Test
 	public void addOrders() {
 		
-		OrderDetails od = new OrderDetails(1,5,"1",null,1);
-		OrderDetails od1 = new OrderDetails(2,5,"2",null,2);
-		OrderDetails od2 = new OrderDetails(3,6,"1",null,3);
-		OrderDetails od3 = new OrderDetails(4,6,null,"1",1);
-		List<OrderDetails> odList = new ArrayList<OrderDetails>();
+		OrderDetails od = new OrderDetails(1,16,"1",null,1,"small");
+		OrderDetails od1 = new OrderDetails(2,17,"2",null,2,"medium");
+		OrderDetails od2 = new OrderDetails(3,18,"1",null,3,"large");
+		OrderDetails od3 = new OrderDetails(4,16,null,"1",1,"small");
+		OrderDetails od4 = new OrderDetails(5,17,null,"1",1,"large");
+		List<OrderDetails> odList = new ArrayList<>();
 		odList.add(od);
 		odList.add(od1);
 		odList.add(od2);
 		odList.add(od3);
-		
+		odList.add(od4);
 		orderDetailsOperation.addOrders(odList);
 	}
 	
@@ -55,7 +57,7 @@ public class OrderDetailsTestOperations {
 		List<OrderDetails> odlist = orderDetailsOperation.displayAllOrderDetails();
 		for(OrderDetails od : odlist) {
 			
-			logger.info(od.getOdId() + " " + od.getOrderId()+" " +od.getCpId() + " "+ od.getItemId() +" "+od.getQuantity());
+			logger.info(od.getOdId() + " " + od.getOrderId()+" " +od.getCpId() + " "+ od.getItemId() +" "+od.getQuantity()+" "+ od.getSize());
 		}
 		
 	}
@@ -63,9 +65,12 @@ public class OrderDetailsTestOperations {
 	@Test
 	public void displayOrderDetailsById() {
 		
-		OrderDetails od = orderDetailsOperation.displayOrderDetailsById("5");
-		logger.info(od.getOdId() + " " + od.getOrderId()+" " +od.getCpId() + " "+ od.getItemId() +" "+od.getQuantity());
-		
+		 
+		List<OrderDetails> odlist = orderDetailsOperation.displayOrderDetailsById(7);
+		for(OrderDetails od : odlist) {
+			
+			logger.info(od.getOdId() + " " + od.getOrderId()+" " +od.getCpId() + " "+ od.getItemId() +" "+od.getQuantity()+" "+ od.getSize());
+		}
 	}
 	
 	

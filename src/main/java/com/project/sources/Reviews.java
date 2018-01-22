@@ -1,35 +1,35 @@
 package com.project.sources;
 
 public class Reviews {
-	private int review_id;
-	private int cutomer_id;
+	private int reviewId;
+	private int cutomerId;
 	private double rating;
 	private String review;
 	
 	public Reviews() {}
 
-	public Reviews(int review_id, int cutomer_id, double rating, String review) {
+	public Reviews(int reviewId, int cutomerId, double rating, String review) {
 		super();
-		this.review_id = review_id;
-		this.cutomer_id = cutomer_id;
+		this.reviewId = reviewId;
+		this.cutomerId = cutomerId;
 		this.rating = rating;
 		this.review = review;
 	}
 
-	public int getReview_id() {
-		return review_id;
+	public int getReviewId() {
+		return reviewId;
 	}
 
-	public void setReview_id(int review_id) {
-		this.review_id = review_id;
+	public void setReviewId(int reviewId) {
+		this.reviewId = reviewId;
 	}
 
-	public int getCutomer_id() {
-		return cutomer_id;
+	public int getCutomerId() {
+		return cutomerId;
 	}
 
-	public void setCutomer_id(int cutomer_id) {
-		this.cutomer_id = cutomer_id;
+	public void setCutomerId(int cutomerId) {
+		this.cutomerId = cutomerId;
 	}
 
 	public double getRating() {

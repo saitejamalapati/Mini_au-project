@@ -13,7 +13,7 @@ public class CartDaoImplementation implements CartDao{
 	static final Logger logger = Logger.getLogger(com.project.dao.CustomerDaoImplementation.class);
 	
 	
-	@Override
+	
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate= new JdbcTemplate(dataSource);
 		
@@ -23,29 +23,41 @@ public class CartDaoImplementation implements CartDao{
 		BasicConfigurator.configure();
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.project.dao.CartDao#addToCart(com.project.sources.Cart)
+	 */
 	public void addToCart(Cart cart) {
 		
 		if(cart.getCpId().equals("-1")) {
 			
-			String query="Insert into pizzeria.cart(customer_id,cart_item_id,cp_id,item_id) values (?,?,?,?) ";
-			jdbcTemplate.update(query,cart.getCustomeId(),cart.getCartItemId(),null,cart.getItemId());
+			String query="Insert into pizzeria.cart(customer_id,cart_item_id,cp_id,item_id,size) values (?,?,?,?,?) ";
+			jdbcTemplate.update(query,cart.getCustomeId(),cart.getCartItemId(),null,cart.getItemId(),cart.getSize());
 		}
 		
 		else {
 			
-			String query="Insert into pizzeria.cart(customer_id,cart_item_id,cp_id,item_id) values (?,?,?,?) ";
-			jdbcTemplate.update(query,cart.getCustomeId(),cart.getCartItemId(),cart.getCpId(),null);
+			String query="Insert into pizzeria.cart(customer_id,cart_item_id,cp_id,item_id,size) values (?,?,?,?,?) ";
+			jdbcTemplate.update(query,cart.getCustomeId(),cart.getCartItemId(),cart.getCpId(),null,cart.getSize());
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.project.dao.CartDao#deleteFromCart(int)
+	 */
 	public void deleteFromCart(int customerId) {
 		String query="Delete from pizzeria.cart where customer_id=?";
 		jdbcTemplate.update(query,customerId);
+		logger.info("Cart items of"+customerId+"are deleted");
 
 	}
+	
+	/* (non-Javadoc)
+	 * @see com.project.dao.CartDao#deleteItemFromCart(int, java.lang.String)
+	 */
 	public void deleteItemFromCart(int customerId,String itemId) {
 		String query="Delete from pizzeria.cart where customer_id=? and item_id=?";
 		jdbcTemplate.update(query,customerId,itemId);
+		logger.info("Cart item with item_id"+itemId+" of customer with customer_id"+customerId+"are deleted");
 	}
 
 	

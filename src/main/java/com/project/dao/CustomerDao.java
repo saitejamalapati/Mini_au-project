@@ -3,13 +3,13 @@ package com.project.dao;
 import javax.sql.DataSource;
 
 import com.project.sources.Customer;
-import com.project.sources.Registered_Customers;
+import com.project.sources.RegisteredCustomers;
 
 public interface CustomerDao {
-	public void addCustomer(Customer cust);
+	public int addCustomer(Customer cust);
 	public void deleteCustomer(int customerId);
-	public void updateCustomer(String contact,String address,int customerId);
-	public int isValidUser(Registered_Customers rc);
+	public void updateCustomer(Customer cust);
+	public Customer isValidUser(RegisteredCustomers rc);
 	public int sendCustomerId();
 	public void setDataSource(DataSource dataSource);
 }

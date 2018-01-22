@@ -1,3 +1,4 @@
+package com.project.tests;
 import javax.sql.DataSource;
 
 import org.apache.log4j.BasicConfigurator;
@@ -48,6 +49,11 @@ public class StaffTestDao {
 		logger.info("deleted the record successfully");
 	}
 
-	
-	
+	@Test
+	public void testChangeStatus()
+	{
+		staffOperations.changeStatus(6);
+		staffOperations.changeStatus(1);
+	}
+
 }

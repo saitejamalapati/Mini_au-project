@@ -15,6 +15,5 @@ public interface StaffOperations {
 	
 	public void setDataSource(DataSource dataSource);
 	
-	//********** need to add a method to view the orders.
 	
 }

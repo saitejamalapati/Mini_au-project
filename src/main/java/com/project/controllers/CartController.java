@@ -2,7 +2,9 @@ package com.project.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.dao.CartDao;
@@ -12,17 +14,17 @@ public class CartController {
 	@Autowired
 	CartDao cartDao;
 	
-	@PostMapping(value = "/xcv")
-	public void addToTheCart(Cart cart) {
+	@PostMapping(value = "/PizzaMiniProject/addtocart")
+	public void addToTheCart(@RequestBody Cart cart) {
 		cartDao.addToCart(cart);
 	}
 	
-	@DeleteMapping(value="/dsfg")
-	public void deleteFromTheCart(int cartId) {
+	@DeleteMapping(value="/PizzaMiniProject/deletefromcart/{cartId}")
+	public void deleteFromTheCart(@PathVariable int cartId) {
 		cartDao.deleteFromCart(cartId);
 	}
-	@DeleteMapping(value="/fgt")
-	public void deleteItemFromTheCart(int customerId,String itemId) {
+	@DeleteMapping(value="/PizzaMiniProject/deletefromcartbyid/{customerId}/{itemId}")
+	public void deleteItemFromTheCart(@PathVariable int customerId,@PathVariable String itemId) {
 		cartDao.deleteItemFromCart(customerId,itemId);
 	}
 }

@@ -1,83 +1,97 @@
 <html>
-    <head>
-        <script src="appScript.js"></script>
-        <script src="validationFile.js"></script>\</head>
 
-    <body>
-        <div ng-app="pizzeriaApp">
-            <form class="form-horizontal" id="registerForm">
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="name">Name:<sup>*</sup></label>
-                    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
-                    </div>
+<head>
+    <script src="appScript.js"></script>
+    <script src="validationFile.js"></script></head>
+
+<body>
+    <div ng-app="pizzeriaApp" ng-controller="signupController">
+        <form class="form-horizontal" id="registerForm">
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="name">Name:
+                    <sup>*</sup>
+                </label>
+                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <input type="text" class="form-control" id="regName" placeholder="Enter Name">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="contact">Contact:<sup>*</sup></label>
-                    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                        <input type="text" class="form-control" id="contact" placeholder="Enter Contact Number">
-                    </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="contact">Contact:
+                    <sup>*</sup>
+                </label>
+                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <input type="text" class="form-control" id="regContact" placeholder="Enter Contact Number">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="address">Address:</label>
-                    <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
-                        <textarea class="form-control" rows="3" placeholder="Enter Address" id="address"></textarea>
-                    </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="address">Address:</label>
+                <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+                    <textarea class="form-control" rows="3" placeholder="Enter Address" id="regAddress"></textarea>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="DoB">Date of Birth:</label>
-                    <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
-                        <div class="input-group" data-provide="datepicker">
-                            <input type="date" name="DoB" class="form-control">
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="DoB">Date of Birth:</label>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+                    <div class="input-group" data-provide="datepicker">
+                        <input type="date" id="regDoB" class="form-control">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="emailID">Email:<sup>*</sup></label>
-                    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                        <input type="email" class="form-control" id="emailID" placeholder="Enter email">
-                    </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="emailID">Email:
+                    <sup>*</sup>
+                </label>
+                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <input type="email" class="form-control" id="regEmailID" placeholder="Enter email">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="passWord">Password:<sup>*</sup></label>
-                    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                        <input type="password" class="form-control" id="passWord" placeholder="Enter Password">
-                    </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="passWord">Password:
+                    <sup>*</sup>
+                </label>
+                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <input type="password" class="form-control" id="regPassWord" placeholder="Enter Password">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
-                        for="rePassword">Re-Enter Password:<sup>*</sup></label>
-                    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                        <input type="password" class="form-control" id="rePassword" placeholder="Re-Type Password">
-                    </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2  col-xs-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-2 col-xs-2 col-md-2 col-lg-2"
+                    for="rePassword">Re-Enter Password:
+                    <sup>*</sup>
+                </label>
+                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <input type="password" class="form-control" id="regRePassword" placeholder="Re-Type Password">
                 </div>
-                <div class="col-sm-offset-4 col-xs-offset-4 col-md-offset-4 col-lg-offset-4 col-xs-8 col-lg-8 col-md-8 col-sm-8">             
-                        <h5>
-                            <span id="helpBlock" class="help-block"><sup>*</sup> marked fields are compulsory!</span>                   
-                        </h5>                               
+            </div>
+            <div class="col-sm-offset-4 col-xs-offset-4 col-md-offset-4 col-lg-offset-4 col-xs-8 col-lg-8 col-md-8 col-sm-8">
+                <h5>
+                    <span id="helpBlock" class="help-block">
+                        <sup>*</sup> marked fields are compulsory!</span>
+                </h5>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4  col-xs-offset-4 col-md-offset-4 col-lg-offset-4 col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="signUpFunc()" id="regButton">Submit</button>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-4  col-xs-offset-4 col-md-offset-4 col-lg-offset-4 col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="submitForm()"id="submitButton">Submit</button>
-                    </div>
-                </div>
+            </div>
 
-            </form>
-        </div>
-    </body>
+        </form>
+    </div>
+    <div ng-app="pizzeriaApp" ng-controller="navBarController"></div>
+</body>
+
 </html>

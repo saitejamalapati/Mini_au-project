@@ -78,26 +78,3 @@ function validateEmail(id) {
         return true;
     }
 }
-
-function submitForm() {
-    console.log("Submission testing");
-    if (!validateText("name")) {
-        return false;
-    }
-    if (!validateContact("contact")) {
-        return false;
-    }
-    if (!validateEmail("emailID")) {
-        return false;
-    }
-    if (!validateText("passWord")) {
-        return false;
-    }
-    if (!validateText("rePassword")) {
-        return false;
-    }
-    if (!passwordMatch("passWord", "rePassword")) {
-        return false;
-    }
-    console.log("Form Submission successfull") 
-}

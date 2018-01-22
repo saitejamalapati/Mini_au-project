@@ -6,19 +6,30 @@ public class OrderDetails {
 	private String itemId;
 	private String cpId;
 	private int quantity;
-	
+	private String size;
 	
 	
 
 	public OrderDetails() {}
 
-	public OrderDetails(int odId, int orderId, String itemId, String cpId, int quantity) {
+	public OrderDetails(int odId, int orderId, String itemId, String cpId, int quantity,String size) {
 		super();
 		this.odId = odId;
 		this.orderId = orderId;
 		this.itemId = itemId;
 		this.cpId = cpId;
 		this.quantity = quantity;
+		this.size = size;
+	}
+	
+
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	public int getOdId() {

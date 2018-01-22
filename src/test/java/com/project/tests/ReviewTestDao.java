@@ -1,3 +1,4 @@
+package com.project.tests;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -9,8 +10,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.project.dao.RegisteredCustomerDao;
-import com.project.dao.RegisteredCustomerDaoImplementation;
 import com.project.dao.ReviewsDao;
 import com.project.dao.ReviewsDaoImplementation;
 import com.project.sources.Reviews;
@@ -46,7 +45,7 @@ public class ReviewTestDao {
 	public void getAllReviews(){
 		List<Reviews> rl = reviewsDao.getAllReviews();
 		for(Reviews a:rl) {
-			logger.info(a.getReview_id()+" "+a.getCutomer_id()+" "+a.getRating()+" "+a.getReview());
+			logger.info(a.getReviewId()+" "+a.getCutomerId()+" "+a.getRating()+" "+a.getReview());
 			}
 	}
 }

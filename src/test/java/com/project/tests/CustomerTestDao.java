@@ -1,16 +1,17 @@
+package com.project.tests;
 import javax.sql.DataSource;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.project.dao.CustomerDao;
 import com.project.dao.CustomerDaoImplementation;
 import com.project.sources.Customer;
-
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import com.project.sources.RegisteredCustomers;
 
 public class CustomerTestDao {
 	
@@ -73,9 +74,22 @@ public class CustomerTestDao {
 	@Test
 	public void testUpdateCustomer()
 	{
-		String new_contact = "9835237666";
-		String address = "darbhanga";
-		customerDao.updateCustomer(new_contact, address, 16);
+		Customer cust = new Customer();
+		cust.setCustomerId(1);
+		cust.setContact("98989898989");
+		cust.setAddress("dfgh");
+		customerDao.updateCustomer(cust);
+	}
+	
+	@Test
+	public void testIsValidUser() {
+		
+		RegisteredCustomers rc = new RegisteredCustomers();
+		rc.setUsername("shreya123");
+		rc.setPassword("SS11");
+		
+		Customer cust = customerDao.isValidUser(rc);
+		logger.info(cust.getCustomerId()+" "+cust.getName()+" "+cust.getAddress()+" "+cust.getContact());
 	}
 	
 

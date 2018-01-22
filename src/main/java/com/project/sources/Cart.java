@@ -6,15 +6,26 @@ public class Cart {
 	private int cartItemId;
 	private String cpId;
 	private String itemId;
+	private String size;
 	
 	public Cart() {}
 
-	public Cart(int customeId, int cartItemId, String cpId, String itemId) {
+	public Cart(int customeId, int cartItemId, String cpId, String itemId,String size) {
 		super();
 		this.customeId = customeId;
 		this.cartItemId = cartItemId;
 		this.cpId = cpId;
 		this.itemId = itemId;
+		this.size = size;
+	}
+
+	
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	public int getCustomeId() {

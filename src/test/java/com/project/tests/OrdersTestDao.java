@@ -1,3 +1,4 @@
+package com.project.tests;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -11,8 +12,6 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.project.dao.OrdersDao;
 import com.project.dao.OrdersDaoImplementation;
-import com.project.sources.Customer;
-import com.project.sources.Menu;
 import com.project.sources.Orders;
 
 public class OrdersTestDao {
@@ -41,6 +40,8 @@ public class OrdersTestDao {
 		ordersDao.addOrders(order);
 		Orders order1 = new Orders(0,2," ",967.56,"nanakramguda");
 		ordersDao.addOrders(order1);
+		Orders order2 = new Orders(0,2," ",967.56," ");
+		ordersDao.addOrders(order2);
 	}
 	
 	@Test

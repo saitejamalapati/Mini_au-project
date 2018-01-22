@@ -17,38 +17,38 @@ public class MenuController {
 	@Autowired
 	MenuOperations menuOperations;
 	
-	@GetMapping(value = "/jfhj")
+	@GetMapping(value = "/PizzaMiniProject/vegmenu")
 	public List<Menu> getTheVegPizza() {
 		return menuOperations.getVegPizza();
 	}
 	
-	@GetMapping(value="/fdsgfwqg")
+	@GetMapping(value="/PizzaMiniProject/menu")
 	public List<Menu> getTheMenu(){
 		
 		return menuOperations.getMenu();
 	}
 
-	@GetMapping(value = "/oieti")
+	@GetMapping(value = "/PizzaMiniProject/nonvegmenu")
 	public List<Menu> getTheNonVegPizza() {
 		return menuOperations.getNonVegPizza();
 	}
 	
-	@GetMapping(value = "/nvbn")
+	@GetMapping(value = "/PizzaMiniProject/combomenu")
 	public List<Menu> getTheCombos() {
 		return menuOperations.getCombos();
 	}
 	
-	@GetMapping(value = "/yuwter")
+	@GetMapping(value = "/PizzaMiniProject/crustmenu")
 	public List<Menu> getTheCrusts() {
 		return menuOperations.getCrusts();
 	}
 	
-	@GetMapping(value = "/sjhf")
+	@GetMapping(value = "/PizzaMiniProject/vegtoppingmenu")
 	public List<Menu> getTheVegToppings() {
 		return menuOperations.getVegToppings();
 	}
 	
-	@GetMapping(value = "/sjfhhbn")
+	@GetMapping(value = "/PizzaMiniProject/nonvegtoppingmenu")
 	public List<Menu> getTheNonVegToppings() {
 		return menuOperations.getNonVegToppings();
 	}

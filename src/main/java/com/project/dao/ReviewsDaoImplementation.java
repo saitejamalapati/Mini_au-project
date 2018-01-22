@@ -20,7 +20,7 @@ public class ReviewsDaoImplementation implements ReviewsDao{
 		
 	}
 	
-	@Override
+
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate= new JdbcTemplate(dataSource);
 		
@@ -29,7 +29,7 @@ public class ReviewsDaoImplementation implements ReviewsDao{
 	public void addReview(Reviews r) {
 	String query="Insert into pizzeria.reviews(customer_id,rating,review) values (?,?,?) ";
 	
-	jdbcTemplate.update(query,r.getCutomer_id(),r.getRating(),r.getReview());
+	jdbcTemplate.update(query,r.getCutomerId(),r.getRating(),r.getReview());
 	logger.info("A Review is added");
 }
 	

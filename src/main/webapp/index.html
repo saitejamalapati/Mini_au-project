@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <div ng-app="pizzeriaApp" ng-controller="appController">
+    <div ng-app="pizzeriaApp">
         <div class="jumbotron">
             <div class="container text-center">
                 <h1 class="display-3">Pizzeria</h1>
@@ -72,31 +72,12 @@
                             <a href="#contact">Contact</a>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#orders">
-                                <span></span>My Orders</a>
-                        </li>
-                        <li>
-                            <a href="#cart">
-                                <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
-                        </li>
-                        <li>
-                            <a href="#register">
-                                <span class="glyphicon glyphicon-user"></span> Sign Up</a>
-                        </li>
-                        <li>
-                            <a href="#login">
-                                <span class="glyphicon glyphicon-log-in"></span> Login</a>
-                        </li>
-                    </ul>
+                    <ul class="nav navbar-nav navbar-right" id="rightList"></ul>
                 </div>
             </div>
         </nav>
         <div ng-view></div>
-
     </div>
-
     <footer class="container-fluid text-center">
         <p>Pizzeria Store Copyright</p>
     </footer>

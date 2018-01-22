@@ -1,3 +1,4 @@
+package com.project.tests;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -64,4 +65,49 @@ public class MenuTestOperations {
 		}		
 		
 	}
+	
+	@Test
+	public void testGetMenuNonveg()
+	{
+		List<Menu> menu = menuOperations.getNonVegPizza();
+		for(Menu pizza :menu) {
+			
+			logger.info(pizza.getItemName()+ "  " + pizza.getCategory() + " = "+pizza.getDescription());
+		}		
+		
+	}
+	
+	@Test
+	public void testGeVegToppings()
+	{
+		List<Menu> menu = menuOperations.getVegToppings();
+		for(Menu pizza :menu) {
+			
+			logger.info(pizza.getItemName()+ "  " + pizza.getCategory() + " = "+pizza.getDescription());
+		}		
+		
+	}
+	
+	@Test
+	public void testGetNonvegToppings()
+	{
+		List<Menu> menu = menuOperations.getNonVegToppings();
+		for(Menu pizza :menu) {
+			
+			logger.info(pizza.getItemName()+ "  " + pizza.getCategory() + " = "+pizza.getDescription());
+		}		
+		
+	}
+	
+	@Test
+	public void testGetCrusts()
+	{
+		List<Menu> menu = menuOperations.getCrusts();
+		for(Menu pizza :menu) {
+			
+			logger.info(pizza.getItemName()+ "  " + pizza.getCategory() + " = "+pizza.getDescription());
+		}		
+		
+	}
+	
 }

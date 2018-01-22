@@ -24,8 +24,7 @@
 </style>
 
 <body>
-    <div ng-app="pizzeriaApp" ng-controller="appController">
-
+    <div ng-app="pizzeriaApp" ng-controller="menuController">
         <div id="veg-pizzas">
             <div>
                 <h2 class="text-center">
@@ -33,23 +32,23 @@
                 </h2>
             </div>
             <div ng-repeat="item in vegPizzas" ng-if="$index % 3 == 0">
-                <div class="container" ng-controller="appController">
+                <div class="container">
                     <div class="row">
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{item.item_name}}</div>
+                                <div class="panel-heading">{{item.itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Veg-Pizza" title="" class="img-responsive">
                                 </div>
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'vDesc-' + $index }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'vRates-' + $index }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'vDesc-' + $index }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{item.itemId}}>Add to Cart</button>
+                                    <div id="{{ 'vDesc-' + $index }}" class="collapse">
                                         <p>{{item.description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'vRates-' + $index }}" class="collapse">
-                                        <h5>S: {{item.small_price}}Rs M: {{item.medium_price}}Rs L: {{item.large_price}}Rs</h5>
+                                    <div id="{{ 'vRates-' + $index }}" class="collapse">
+                                        <h5>S: {{item.smallPrice}}Rs M: {{item.mediumPrice}}Rs L: {{item.largePrice}}Rs</h5>
                                     </div>
                                 </div>
                             </div>
@@ -57,20 +56,20 @@
 
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4" ng-if="($index +1) < vegPizzas.length">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{vegPizzas[$index+1].item_name}}</div>
+                                <div class="panel-heading">{{vegPizzas[$index+1].itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Veg-Pizza" title="" class="img-responsive">
                                 </div>
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'vDesc-' + $index+1 }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'vRates-' + $index+1 }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'vDesc-' + $index+1 }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{vegPizzas[$index+1].itemId}}>Add to Cart</button>
+                                    <div id="{{ 'vDesc-' + $index+1 }}" class="collapse">
                                         <p>{{vegPizzas[$index+1].description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'vRates-' + $index+1 }}" class="collapse">
-                                        <h5>S: {{vegPizzas[$index+1].small_price}}Rs M: {{vegPizzas[$index+1].medium_price}}Rs
-                                            L: {{vegPizzas[$index+1].large_price}} Rs
+                                    <div id="{{ 'vRates-' + $index+1 }}" class="collapse">
+                                        <h5>S: {{vegPizzas[$index+1].smallPrice}}Rs M: {{vegPizzas[$index+1].mediumPrice}}Rs
+                                            L: {{vegPizzas[$index+1].largePrice}} Rs
                                         </h5>
                                     </div>
                                 </div>
@@ -79,7 +78,7 @@
 
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4" ng-if="($index +2) < vegPizzas.length">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{vegPizzas[$index+2].item_name}}</div>
+                                <div class="panel-heading">{{vegPizzas[$index+2].itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Veg-Pizza" title="" class="img-responsive">
 
@@ -87,13 +86,13 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="{{ 'vDesc-' + $index+2 }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="{{ 'vRates-' + $index+2 }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'vDesc-' + $index+2 }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{vegPizzas[$index+2].itemId}}>Add to Cart</button>
+                                    <div id="{{ 'vDesc-' + $index+2 }}" class="collapse">
                                         <p>{{vegPizzas[$index+1].description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'vRates-' + $index+2 }}" class="collapse">
-                                        <h5>S: {{vegPizzas[$index+2].small_price}}Rs M: {{vegPizzas[$index+2].medium_price}}Rs
-                                            L: {{vegPizzas[$index+2].large_price}} Rs
+                                    <div id="{{ 'vRates-' + $index+2 }}" class="collapse">
+                                        <h5>S: {{vegPizzas[$index+2].smallPrice}}Rs M: {{vegPizzas[$index+2].mediumPrice}}Rs
+                                            L: {{vegPizzas[$index+2].largePrice}} Rs
                                         </h5>
                                     </div>
                                 </div>
@@ -111,11 +110,11 @@
                 </h2>
             </div>
             <div ng-repeat="item in nonVegPizzas" ng-if="$index % 3 == 0">
-                <div class="container" ng-controller="appController">
+                <div class="container">
                     <div class="row">
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{item.item_name}}</div>
+                                <div class="panel-heading">{{item.itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Non-Veg Pizza" title="" class="img-responsive">
 
@@ -123,12 +122,12 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'nvDesc-' + $index }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'nvRates-' + $index }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'nvDesc-' + $index }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{item.itemId}}>Add to Cart</button>
+                                    <div id="{{ 'nvDesc-' + $index }}" class="collapse">
                                         <p>{{item.description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'nvRates-' + $index }}" class="collapse">
-                                        <h5>S: {{item.small_price}}Rs M: {{item.medium_price}}Rs L: {{item.large_price}}Rs</h5>
+                                    <div id="{{ 'nvRates-' + $index }}" class="collapse">
+                                        <h5>S: {{item.smallPrice}}Rs M: {{item.mediumPrice}}Rs L: {{item.largePrice}}Rs</h5>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +135,7 @@
 
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4" ng-if="($index +1) < nonVegPizzas.length">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{nonVegPizzas[$index+1].item_name}}</div>
+                                <div class="panel-heading">{{nonVegPizzas[$index+1].itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Non-Veg Pizza" title="" class="img-responsive">
 
@@ -144,13 +143,13 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'nvDesc-' + $index+1 }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'nvRates-' + $index+1 }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'nvDesc-' + $index+1 }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{nonVegPizzas[$index+1].itemId}}>Add to Cart</button>
+                                    <div id="{{ 'nvDesc-' + $index+1 }}" class="collapse">
                                         <p>{{nonVegPizzas[$index+1].description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'nvRates-' + $index+1 }}" class="collapse">
-                                        <h5>S: {{nonVegPizzas[$index+1].small_price}}Rs M: {{nonVegPizzas[$index+1].medium_price}}
-                                            Rs L: {{nonVegPizzas[$index+1].large_price}} Rs
+                                    <div id="{{ 'nvRates-' + $index+1 }}" class="collapse">
+                                        <h5>S: {{nonVegPizzas[$index+1].smallPrice}}Rs M: {{nonVegPizzas[$index+1].mediumPrice}}
+                                            Rs L: {{nonVegPizzas[$index+1].largePrice}} Rs
                                         </h5>
                                     </div>
                                 </div>
@@ -159,7 +158,7 @@
 
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4" ng-if="($index +2) < nonVegPizzas.length">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{nonVegPizzas[$index+2].item_name}}</div>
+                                <div class="panel-heading">{{nonVegPizzas[$index+2].itemName}}</div>
                                 <div class="panel-body">
 
                                     <img src="" alt="Non-Veg Pizza" title="" class="img-responsive">
@@ -168,13 +167,13 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'nvDesc-' + $index+2 }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'nvRates-' + $index+2 }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ing-attr-idd="{{ 'nvDesc-' + $index+2 }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{nonVegPizzas[$index+2].itemId}}>Add to Cart</button>
+                                    <div id="{{ 'nvDesc-' + $index+2 }}" class="collapse">
                                         <p>{{nonVegPizzas[$index+2].description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'nvRates-' + $index+2 }}" class="collapse">
-                                        <h5>S: {{nonVegPizzas[$index+2].small_price}}Rs M: {{nonVegPizzas[$index+2].medium_price}}
-                                            Rs L: {{nonVegPizzas[$index+2].large_price}} Rs
+                                    <div id="{{ 'nvRates-' + $index+2 }}" class="collapse">
+                                        <h5>S: {{nonVegPizzas[$index+2].smallPrice}}Rs M: {{nonVegPizzas[$index+2].mediumPrice}}
+                                            Rs L: {{nonVegPizzas[$index+2].largePrice}} Rs
                                         </h5>
                                     </div>
                                 </div>
@@ -192,11 +191,11 @@
                 </h2>
             </div>
             <div ng-repeat="item in combos" ng-if="$index % 3 == 0">
-                <div class="container" ng-controller="appController">
+                <div class="container">
                     <div class="row">
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{item.item_name}}</div>
+                                <div class="panel-heading">{{item.itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Combos" title="" class="img-responsive">
 
@@ -204,12 +203,12 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'cDesc-' + $index }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'cRates-' + $index }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'cDesc-' + $index }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{item.itemId}}>Add to Cart</button>
+                                    <div id="{{ 'cDesc-' + $index }}" class="collapse">
                                         <p>{{item.description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'cRates-' + $index }}" class="collapse">
-                                        <h5>S: {{item.small_price}}Rs M: {{item.medium_price}}Rs L: {{item.large_price}}Rs</h5>
+                                    <div id="{{ 'cRates-' + $index }}" class="collapse">
+                                        <h5>S: {{item.smallPrice}}Rs M: {{item.mediumPrice}}Rs L: {{item.largePrice}}Rs</h5>
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +216,7 @@
 
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4" ng-if="($index +1) < combos.length">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{combos[$index+1].item_name}}</div>
+                                <div class="panel-heading">{{combos[$index+1].itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Combos" title="" class="img-responsive">
 
@@ -225,12 +224,12 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'cDesc-' + $index+1 }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'cRates-' + $index+1 }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'cDesc-' + $index+1 }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{combos[$index+1].itemId}}>Add to Cart</button>
+                                    <div id="{{ 'cDesc-' + $index+1 }}" class="collapse">
                                         <p>{{combos[$index+1].description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'cRates-' + $index+1 }}" class="collapse">
-                                        <h5>S: {{combos[$index+1].small_price}}Rs M: {{combos[$index+1].medium_price}}Rs L: {{cmobos[$index+1].large_price}}
+                                    <div id="{{ 'cRates-' + $index+1 }}" class="collapse">
+                                        <h5>S: {{combos[$index+1].smallPrice}}Rs M: {{combos[$index+1].mediumPrice}}Rs L: {{cmobos[$index+1].largePrice}}
                                             Rs
                                         </h5>
                                     </div>
@@ -240,7 +239,7 @@
 
                         <div class="panel-group col-sm-4 col-lg-4 col-xs-4 col-md-4" ng-if="($index +2) < combos.length">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">{{combos[$index+2].item_name}}</div>
+                                <div class="panel-heading">{{combos[$index+2].itemName}}</div>
                                 <div class="panel-body">
                                     <img src="" alt="Combos" title="" class="img-responsive">
 
@@ -248,12 +247,12 @@
                                 <div class="panel-footer">
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'cDesc-' + $index+2 }}">Description</button>
                                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{ 'cRates-' + $index+2 }}">Price</button>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add to Cart</button>
-                                    <div ng-attr-id="{{ 'cDesc-' + $index+2 }}" class="collapse">
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" id={{combos[$index+2].itemId}}>Add to Cart</button>
+                                    <div id="{{ 'cDesc-' + $index+2 }}" class="collapse">
                                         <p>{{combos[$index+2].description}}</p>
                                     </div>
-                                    <div ng-attr-id="{{ 'cRates-' + $index+2}}" class="collapse">
-                                        <h5>S: {{combos[$index+2].small_price}}Rs M: {{combos[$index+2].medium_price}}Rs L: {{cmobos[$index+2].large_price}}
+                                    <div id="{{ 'cRates-' + $index+2}}" class="collapse">
+                                        <h5>S: {{combos[$index+2].smallPrice}}Rs M: {{combos[$index+2].mediumPrice}}Rs L: {{cmobos[$index+2].largePrice}}
                                             Rs
                                         </h5>
                                     </div>
@@ -264,6 +263,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div ng-app="pizzeriaApp" ng-controller="navBarController"></div>
 </body>
 
 </html>

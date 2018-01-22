@@ -13,27 +13,31 @@ public class CustomizedPizzaOperationsImpl implements CustomizedPizzaOperations{
 	private JdbcTemplate jdbcTemplate;
 	static final Logger logger = Logger.getLogger(com.project.dao.StaffImpl.class);
 
-	@Override
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate= new JdbcTemplate(dataSource);
 		
 	}
 	
-	public void addPizzaItems(List<String> itemList) {
+	public String addPizzaItems(List<String> itemList) {
 	
-		
+		int rowsAffected=0;
+		int rowAffected=0;
 		for(String cp: itemList) {
 			
 			String sql = "insert into pizzeria.customized_pizza values (?,?)";
-			int rowsAffected = jdbcTemplate.update(sql,counter.toString(),cp);
+			rowAffected= jdbcTemplate.update(sql,counter.toString(),cp);
+			rowsAffected=rowsAffected+rowAffected;
+		}
 			
 			if(rowsAffected == 0) {
 				logger.error("unsuccessful insertion of an item in cp");
+				return null;
 			}
 		
-			else logger.info("inserted item in cp successfully");
-			
-		}
+			else {
+				logger.info("inserted item in cp successfully");
+				return sendCpId();
+			}
 		
 		
 	}

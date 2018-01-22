@@ -1,7 +1,7 @@
+package com.project.tests;
 import javax.sql.DataSource;
 
 import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +14,7 @@ import com.project.sources.Cart;
 public class CartTestDao {
 	static ApplicationContext context;
 	static DataSource dataSource ;
-	private static final Logger logger = Logger.getLogger(CartTestDao.class);
+
 
 	static CartDao cartDao;
 	@BeforeClass
@@ -28,17 +28,17 @@ public class CartTestDao {
 		
 	}
 	
-	/*@Test
+	@Test
 	public void testAddToCart() {
-		Cart c = new Cart(2,1,"-1","2");
+		Cart c = new Cart(1,1,"-1","1","small");
 		cartDao.addToCart(c);
-		Cart c1 = new Cart(2,2,"1","-1");
+		Cart c1 = new Cart(2,2,"1","-1","large");
 		cartDao.addToCart(c1);
-		Cart c2 = new Cart(1,1,"-1","3");
+		Cart c2 = new Cart(1,3,"-1","1","medium");
 		cartDao.addToCart(c2);
-		Cart c3 = new Cart(1,2,"1","-1");
+		Cart c3 = new Cart(2,1,"1","-1","small");
 		cartDao.addToCart(c3);
-	}*/
+	}
 	
 	@Test
 	public void testDeleteFromCart() {

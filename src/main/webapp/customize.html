@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="appScript.js"></script>
+</head>
+
+<body>
+    <div ng-app="pizzeriaApp" ng-controller="menuController">
+        <h1 class="text-center">Hello masterchef! Lets prepare some pizza.</h1>
+        <div class="container">
+            <h3>Lets start with the crust</h3>
+            <form>
+                <div ng-repeat="item in crusts">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" id="{{item.itemId}}" name="crustRadio">{{item.itemName}} - Rs.{{item.smallPrice}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <h3>Now select some healthy Veg Toppings</h3>
+            <form>
+                <div ng-repeat="item in vegToppings">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="{{item.itemId}}" value="{{item.itemId}}">{{item.itemName}} - Rs.{{item.smallPrice}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <h3>Lets go with juicy Non-Veg Toppings</h3>
+            <form>
+                <div ng-repeat="item in nonVegToppings">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="{{item.itemId}}" value="{{item.itemId}}">{{item.itemName}} - Rs.{{item.smallPrice}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-offset-5  col-xs-offset-5 col-md-offset-5 col-lg-offset-5 col-sm-3 col-xs-3 col-md-3 col-lg-3">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+    <div ng-app="pizzeriaApp" ng-controller="navBarController"></div>
+</body>
+
+</html>

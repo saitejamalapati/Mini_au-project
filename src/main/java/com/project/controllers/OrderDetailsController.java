@@ -2,11 +2,11 @@ package com.project.controllers;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.dao.OrderDetailsOperation;
@@ -20,19 +20,19 @@ public class OrderDetailsController {
 	@Autowired
 	OrderDetailsOperation orderDetails;
 	
-	@PostMapping(value = "/sf")
-	public void addTheOrders(List<OrderDetails> odList) {
+	@PostMapping(value = "/PizzaMiniProject/addorderdetails")
+	public void addTheOrders(@RequestBody List<OrderDetails> odList) {
 	
 		orderDetails.addOrders(odList);
 	}
 	
-	@GetMapping(value = "/ert")
+	@GetMapping(value = "/PizzaMiniProject/allorderdetails")
 	public List<OrderDetails> displayAllTheOrderDetails() {
 		return orderDetails.displayAllOrderDetails();
 	}
 	
-	@GetMapping(value = "/gdrg/{orderId}")
-	public  OrderDetails displayTheOrderDetailsById(@PathParam(value = "orderId") String orderId){
+	@GetMapping(value = "/PizzaMiniProject/orderdetailsbyid/{orderId}")
+	public  List<OrderDetails> displayTheOrderDetailsById(@PathVariable int orderId){
 		
 		return orderDetails.displayOrderDetailsById(orderId);
 	}
